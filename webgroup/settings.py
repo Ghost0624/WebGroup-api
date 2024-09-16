@@ -87,10 +87,10 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'webgroup',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'webgroupdb',
+        'USER': 'WebGroupAPI',
+        'PASSWORD': 'whrlqfkej11291023',
+        'HOST': 'webgroupapi.cra44a0yolzc.ap-southeast-2.rds.amazonaws.com',
         'PORT': '3306'
     }
 }
