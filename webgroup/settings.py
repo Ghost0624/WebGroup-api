@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--h&jvap03)+ti30i&ii#4rs=4^$!mns+6m77!vbg%17*2gt5s9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool) 
+DEBUG = config('DEBUG') 
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGINS = [  
-    "https://master.d3q3qwx3wflv1b.amplifyapp.com",  # Your Vue.js app's origin  
+   config('ALLOWED_FRONTEND'),  # Your Vue.js app's origin  
 ]
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies and credentials 
 
