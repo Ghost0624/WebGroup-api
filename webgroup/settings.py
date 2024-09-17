@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os  
+from decouple import config  
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--h&jvap03)+ti30i&ii#4rs=4^$!mns+6m77!vbg%17*2gt5s9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool) 
 
 ALLOWED_HOSTS = []
 
@@ -79,24 +81,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'webgroup.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 import pymysql
 pymysql.install_as_MySQLdb()
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'webgroupdb',
-        'USER': 'WebGroupAPI',
-        'PASSWORD': 'whrlqfkej11291023',
-        'HOST': 'webgroupapi.cra44a0yolzc.ap-southeast-2.rds.amazonaws.com',
-        'PORT': '3306',
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': config('DATABASE_NAME'),  
+        'USER': config('DATABASE_USER'),  
+        'PASSWORD': config('DATABASE_PASSWORD'),  
+        'HOST': config('DATABASE_HOST'),  
+        'PORT': config('DATABASE_PORT', default='3306', cast=int),  
         'OPTIONS': {  
             'connect_timeout': 60,  # Set a higher timeout value  
-        },
-    }
-}
+        },  
+    }  
+}  
 
 
 # Password validation
