@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGINS = [  
-    "http://localhost:8080",  # Your Vue.js app's origin  
+    "https://master.d3q3qwx3wflv1b.amplifyapp.com",  # Your Vue.js app's origin  
 ]
 CORS_ALLOW_CREDENTIALS = True  # Allow cookies and credentials 
 
